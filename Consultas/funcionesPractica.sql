@@ -124,6 +124,8 @@ WHERE length(address) > 34
 ORDER BY address_id;
 
 -- INITCAP
+SELECT INITCAP( 'hi john' )
+FROM DUAL;
 
 SELECT * FROM City;
 SELECT *, initcap(country_code) 
@@ -151,6 +153,9 @@ concat(first_name," ",last_name ) name_surname,
 rpad(concat(first_name," - ", last_name), 20, "12345") name_surname
 FROM sakila.customer;
 
+
+
+
 -- NUMERIC
 
 SELECT * FROM AnimalHospital.Animals;
@@ -159,6 +164,8 @@ SELECT * FROM AnimalHospital.Pets;
 
 SELECT Pet_ID, Pet_Name, Breed, Gender, Length, Weight, abs(weight) abs_weight 
 FROM AnimalHospital.Pets;
+
+SELECT ABS(-245.2) FROM dual;
 
 -- SIGN()
 
@@ -200,3 +207,58 @@ SELECT * FROM AnimalHospital.Visit_Details;
 SELECT Visit_Number, Visit_Type, Medication_Price, truncate(medication_price, 2) 
 FROM AnimalHospital.Visit_Details;
 
+-- MOD
+SELECT * FROM AnimalHospital.Visit_Details;
+
+SELECT Visit_Number, Visit_Type, Treatment_Price,
+Medication_Price, mod(Medication_Price, 2 ) mod_price
+FROM AnimalHospital.Visit_Details
+WHERE Treatment_Price < 32.0000;
+
+SELECT Visit_Number, Visit_Type, Treatment_Price,
+Medication_Price, Medication_Price MOD 2 mod_price
+FROM AnimalHospital.Visit_Details
+WHERE Treatment_Price < 15.0000;
+
+SELECT remainder(24,3)
+FROM DUAL;
+
+-- POWER
+SELECT * FROM AnimalHospital.Visit_Details;
+SELECT visit_type, Treatment_price, Medication_Price,
+power(medication_price, 2) power_price
+FROM Visit_Details;
+
+SELECT * FROM AnimalHospital.Visit_Details;
+SELECT visit_type, Treatment_price, Medication_Price,
+power(medication_price, 2) power_price
+FROM Visit_Details
+WHERE Medication_Price <> 0 AND (Medication_Price > 10.0000 AND
+power(medication_price, 2)  < 1000);
+
+SELECT POWER(8, 3);
+
+-- SQRT
+SELECT SQRT(25)  FROM dual;
+SELECT SQRT(-25) FROM dual;
+
+SELECT * FROM Employees.employees;
+
+SELECT employee_id, first_name, job_id, salary, commission_pct,
+sqrt(salary) sqrt_salary, floor(sqrt(salary)) abs_sqrt_salary
+FROM Employees.employees;
+
+SELECT * FROM Employees.employees;
+
+SELECT employee_id, first_name, job_id, salary, 
+sqrt(salary) sqrt_salary, floor(sqrt(salary)) abs_sqrt_salary, commission_pct
+FROM Employees.employees
+WHERE job_id IN("IT_PROG") OR commission_pct = NULL;
+
+SELECT SQRT(256) FROM dual;
+
+
+
+
+SELECT TRIM(" street_address   "), length(trim(" street_address   "))
+FROM dual;

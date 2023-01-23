@@ -1,18 +1,17 @@
 **CONSULTAS PROBANDO FUNCIONES**
 
 Aquí tienes un listado de las que considero más importantes.
-
 Asegúrate de que las has probado y sabes para qué sirven y cómo se 
 utilizan.
 
 ## Single ROW Functions
 
-
 ### **1. Character Functions**
 
 #### 1. SUBSTR()
 Extrae una subcadena de una cadena de caracteres especificada.
-`SUBSTR(string, start, length);`
+Syntax: `SUBSTR(string, start, length);`
+
 MYSQL
 ``` mysql
 SELECT * FROM employees;
@@ -31,17 +30,16 @@ FROM employees;
 
 
 #### 2. REPLACE()
-reemplaza una _subcadena_ en una cadena de caracteres con otra subcadena.
+Reemplaza una _subcadena_ en una cadena de caracteres con otra subcadena.
+Syntax: `REPLACE(str, find_string, replace_with)`
 
 MYSQL
 ``` mysql
 SELECT * FROM Employees.Countries;
-
 SELECT *, REPLACE(country_name, "States","aeiou") pais_modificado
 FROM countries;
 
 SELECT * FROM AnimalHospital.Medications;
-
 SELECT Medication_Name, replace( "Aspertane", "tane", "uuu") reemplazar
 FROM Medications;
 ```
@@ -49,7 +47,6 @@ FROM Medications;
 ORACLE
 ``` sql
 SELECT * FROM countries;
-
 SELECT REPLACE(country_name, 'a','aeiou')
 FROM countries;
 
@@ -59,9 +56,9 @@ FROM countries C;
 ```
 
 #### 3. TRIM()
-elimina los espacios en blanco al principio y al final de una cadena de caracteres.
+Elimina los espacios en blanco al principio y al final de una cadena de caracteres.
+Syntax:
 
-NO FUNCIONA PARA UNA COLUMNA 
 MYSQL
 ``` mysql
 SELECT * FROM Employees.locations;
@@ -82,7 +79,8 @@ FROM locations;
 ```
 
 #### 4. LTRIM()
-elimina los caracteres especificados de la **izquierda** de una cadena.
+Elimina los caracteres especificados de la **izquierda** de una cadena.
+Syntax: `LTRIM(str)`
 
 MYSQL
 ``` mysql
@@ -103,7 +101,8 @@ FROM dual;
 ```
 
 #### 5. RTRIM()
-elimina los caracteres especificados de la **derecha** de una cadena.
+Elimina los caracteres especificados de la **derecha** de una cadena.
+Syntax: `RTRIM(str)`
 
 MYSQL
 ``` mysql
@@ -120,10 +119,9 @@ SELECT LENGTH(' colores    ') before_rtrim, LENGTH(RTRIM('    colores ')) after_
 FROM dual;
 ```
 
-DATABASE ANIMALHOSPITAL
-
 #### 6. LENGTH()
-devuelve la **longitud** de una cadena de caracteres
+Devuelve la **longitud** de una cadena de caracteres
+Syntax: `LENGTH (str)`
 
 MYSQL
 ``` mysql
@@ -147,7 +145,10 @@ ORDER BY M.medication_code;
 ```
 
 #### 7. INSTR()
-devuelve la **posición** de un carácter o subcadena dentro de una _cadena de caracteres_.
+Devuelve la **posición** de un carácter o subcadena dentro de una _cadena de caracteres_.
+Syntax : `INSTR (original_str, sub_str)`
+	original: The string to be searched
+	sub_str: The string to be searched for within the original_str.
 
 MYSQL
 ``` mysql
@@ -177,6 +178,7 @@ ORDER BY Pet_Name;
 
 #### 8. CONCAT()
 concatena dos o más cadenas de caracteres.
+Syntax: `CONCAT (string1, string2,…)`
 
 MYSQL
 ``` mysql
@@ -205,10 +207,13 @@ FROM employees;
 
 SELECT S.*, S.state_code || '-' || S.state_name
 FROM states S;
+
+SELECT CONCAT('focus', ' on yourself')
 ```
 
 #### 9. LOWER()
-convierte todos los caracteres de una cadena a minúsculas.
+Convierte todos los caracteres de una cadena a minúsculas.
+Syntax: `LOWER(str)`
 
 MYSQL
 ``` mysql
@@ -233,7 +238,8 @@ ORDER BY codart;
 ```
 
 #### 10. UPPER()
-convierte todos los caracteres de una cadena a mayúsculas.
+Convierte todos los caracteres de una cadena a mayúsculas.
+Syntax: `UPPER(str)`
 
 MYSQL
 ``` mysql
@@ -247,30 +253,34 @@ ORDER BY address_id;
 
 ORACLE
 ``` sql
-SELECT * FROM CATEGORY;
+SELECT * FROM sakila.CATEGORY;
 
 SELECT C.*, upper(name)
 FROM CATEGORY C;
 
+SELECT * FROM CATEGORY;
 SELECT C.*, upper(name) upp_name, upper(name) || '--' || last_update
 FROM CATEGORY C;
 
 ```
 
 #### 11. INITCAP()
+
 MYSQL
 ``` mysql
-
+SELECT INITCAP( 'hi john' )
+FROM DUAL;
 ```
 
 ORACLE
 ``` sql
+SELECT INITCAP('the colors')
+FROM DUAL;
 ```
-  
 
 #### 12. LPAD()
-agrega _caracteres_ a la __izquierda__ de una cadena hasta alcanzar una longitud específica.
-`LPAD(_string_, _length_, _lpad_string_)`
+Agrega _caracteres_ a la __izquierda__ de una cadena hasta alcanzar una longitud específica.
+Syntax: `LPAD(_string_, _length_, _lpad_string_)`
 
 MYSQL
 ``` mysql
@@ -285,7 +295,6 @@ SELECT country_id , country, lpad(country, 20, "pais-")
 FROM country
 WHERE country LIKE("S%a")
 ORDER BY country_id;
-
 ```
 
 ORACLE
@@ -299,8 +308,8 @@ ORDER BY C.CITY;
 ```
 
 #### 13. RPAD()
-agrega caracteres a la derecha de una cadena hasta alcanzar una longitud específica.
-`RPAD(_string_, _length_, _rpad_string_)`
+Agrega caracteres a la derecha de una cadena hasta alcanzar una longitud específica.
+Syntax: `RPAD(_string_, _length_, _rpad_string_)`
 
 MYSQL
 ``` mysql
@@ -337,7 +346,6 @@ REGEXP_REPLACE
 REGEXP_SUBSTR
 
 
-
 MYSQL
 ``` mysql
 
@@ -348,34 +356,38 @@ ORACLE
 
 ```
 
-
 ### **2. Numeric Functions**
 
 #### 1. ABS()
-returns the absolute (positive) value of a number.
-`ABS(number)`
+Returns the absolute (positive) value of a number.
+Syntax: `ABS(number)`
 
 MYSQL
 ``` mysql
 SELECT Pet_ID, Pet_Name, Breed, Gender, Length, Weight, abs(weight) abs_weight 
 FROM AnimalHospital.Pets;
+
+SELECT ABS(-215.27) FROM dual;
 ```
 
 ORACLE
 ``` sql
+SELECT ABS(5) FROM dual;
+
+SELECT ABS(-5) FROM dual;
+
+SELECT ABS(-245.2) FROM dual;
 
 ```
 
-### 2. SIGN()
-
-returns the sign of a number.
+#### 2. SIGN()
+Returns the sign of a number.
 This function will return one of the following:
-
 -   If number > 0, it returns 1
 -   If number = 0, it returns 0
 -   If number < 0, it returns -1
 
-`SIGN(number)`
+Syntax: `SIGN(number)`
 
 MYSQL
 ``` mysql
@@ -387,16 +399,16 @@ FROM Neptuno.Pedidos;
 
 ORACLE
 ``` sql
-
+SELECT ABS(-423.27) abs_number
+FROM DUAL;
 ```
 
 #### 3. CEIL()
-
-returns the **smallest integer** value that is bigger than or equal to a number.
+Returns the **smallest integer** value that is bigger than or equal to a number.
 is equal to the [CEILING()](https://www.w3schools.com/sql/func_mysql_ceiling.asp) function.
-redondea un número al entero más cercano que es mayor que el número dado.
+Redondea un número al entero más cercano que es mayor que el número dado.
 
-Syntax : `CEIL(number)`
+Syntax: `CEIL(number)`
 
 MYSQL
 ``` mysql
@@ -409,14 +421,14 @@ FROM Neptuno.Pedidos;
 
 ORACLE
 ``` sql
-
+SELECT CEIL(-423.27) ceil_number1, CEIL(23.777) ceil_number2
+FROM DUAL;
 ```
 
 #### 4. FLOOR()
+Redondea un número al entero más cercano que es **menor** que el número dado.
 
-redondea un número al entero más cercano que es **menor** que el número dado.
-
-Syntax : `FLOOR(number)`
+Syntax: `FLOOR(number)`
 
 MYSQL
 ``` mysql
@@ -429,13 +441,15 @@ FROM Productos;
 
 ORACLE
 ``` sql
-
+SELECT FLOOR(12.24* 6) floor_number1, FLOOR(12.24) floor_number2, FLOOR(123.98) floor_number3
+FROM DUAL;
 ```
 
 #### 5. ROUND (number)
-rounds a number to a specified number of **decimal** places.
-redondea un número a un número especificado de dígitos decimales.
-Syntax : `ROUND(number, decimals)`
+Rounds a number to a specified number of **decimal** places.
+Redondea un número a un número especificado de dígitos decimales.
+
+Syntax: `ROUND(number, decimals)`
 
 MYSQL
 ``` mysql
@@ -450,12 +464,20 @@ ORDER BY UnidadesEnExistencia DESC;
 
 ORACLE
 ``` sql
+SELECT * FROM NEPTUNO;
 
+SELECT idproducto, cantidadporunidad, preciounidad, round(preciounidad) round_precio
+FROM PRODUCTOS;
+
+SELECT idproducto, cantidadporunidad, preciounidad, round(preciounidad) round_precio_unidad, unidadesenexistencia
+FROM PRODUCTOS
+WHERE preciounidad BETWEEN 10 AND 18
+ORDER BY unidadesenexistencia;
 ```
 
 #### 6. TRUNC (number)
-trunca un número, al número especificado de lugares decimales.
-`TRUNCATE(number, decimals)`
+Trunca un número, al número especificado de lugares decimales.
+Syntax: `TRUNCATE(number, decimals)`
 
 MYSQL
 ``` mysql
@@ -467,67 +489,179 @@ FROM AnimalHospital.Visit_Details;
 
 ORACLE
 ``` sql
+SELECT * FROM DETALLES_DE_PEDIDOS;
 
+SELECT P.*, TRUNCATE(preciounidad, 0)
+FROM DETALLES_DE_PEDIDOS P;
 ```
 
 #### 7. MOD()
-returns the remainder of a number divided by another number
-devuelve el resto de una división específica.
-
-Syntax : 
+Returns the remainder of a number divided by another number
+Devuelve el resto de una división específica.
+Syntax: 
 `MOD(x, y)`
 `x MOD y`
 `x % y`
 
 MYSQL
 ``` mysql
+SELECT * FROM AnimalHospital.Visit_Details;
 
+SELECT Visit_Number, Visit_Type, Treatment_Price,
+Medication_Price, Medication_Price MOD 2 mod_price
+FROM AnimalHospital.Visit_Details
+
+
+SELECT Visit_Number, Visit_Type, Treatment_Price,
+Medication_Price, mod(Medication_Price, 2 ) mod_price
+FROM AnimalHospital.Visit_Details
+WHERE Treatment_Price < 32.0000;
 ```
 
 ORACLE
 ``` sql
+SELECT * FROM DETALLES_DE_PEDIDOS;
 
+SELECT P.*, MOD(preciounidad, 2) resiudo_precio
+FROM DETALLES_DE_PEDIDOS P;
 ```
 
 #### 8. REMAINDER()
+Esta función devuelve el residuo de n2 dividido por n1. n1 y n2 son los argumentos de esta función.
+Syntax: `REMAINDER(n2, n1)`
 
+La función __MOD__ es similar a REMAINDER excepto que MOD usa FLOOR en su fórmula, mientras que REMAINDER usa ROUND.
 
 MYSQL
 ``` mysql
-
+SELECT remainder(24,3)
+FROM DUAL;
 ```
 
 ORACLE
 ``` sql
-
+SELECT P.*, REMAINDER(PRECIOUNIDAD, 2) residuo_precio
+FROM DETALLES_DE_PEDIDOS P;
 ```
 
 #### 9. POWER()
-returns the value of a number raised to the power of another number.
-Syntax : `POWER(x, y)`
+Returns the value of a number raised to the power of another number.
+La función POWER de Oracle se utiliza para devolver el valor de un número elevado a la potencia de otro número.
+
+Syntax: `POWER(x, y)`
 x : (the base)
 y : (the exponent)
 
 MYSQL
 ``` mysql
+SELECT * FROM AnimalHospital.Visit_Details;
+SELECT visit_type, Treatment_price, Medication_Price,
+power(medication_price, 2) power_price
+FROM Visit_Details;
 
+SELECT * FROM AnimalHospital.Visit_Details;
+SELECT visit_type, Treatment_price, Medication_Price,
+power(medication_price, 2) power_price
+FROM Visit_Details
+WHERE Medication_Price <> 0 AND (Medication_Price > 10.0000 AND
+power(medication_price, 2)  < 1000);
+
+SELECT POWER(8, 3);
 ```
 
 ORACLE
 ``` sql
+SELECT POWER(3, 2) potencia
+FROM dual;
 
+SELECT * FROM DETALLES_DE_PEDIDOS;
+SELECT P.*, POWER(PRECIOUNIDAD, 2) potencia_precio
+FROM DETALLES_DE_PEDIDOS P;
+
+SELECT * FROM DETALLES_DE_PEDIDOS;
+SELECT P.*, POWER(PRECIOUNIDAD, 2) potencia_precio
+FROM DETALLES_DE_PEDIDOS P
+WHERE CANTIDAD >40 AND POWER(PRECIOUNIDAD, 2) < 80;
+
+SELECT * FROM DETALLES_DE_PEDIDOS;
+SELECT P.*, POWER(PRECIOUNIDAD, 2) potencia_precio
+FROM DETALLES_DE_PEDIDOS P
+WHERE CANTIDAD >40 AND POWER(PRECIOUNIDAD, 2) < 80
+ORDER BY 2, 1;
 ```
-#### 10. SQRT()
 
-returns the square root of a number.
+#### 10. SQRT()
+Returns the square root of a number.
 Syntax: `SQRT(number)`
 
 MYSQL
 ``` mysql
+SELECT SQRT(-25) FROM dual; -- DA NULL
+SELECT SQRT(256) FROM dual;
 
+SELECT * FROM Employees.employees;
+SELECT employee_id, first_name, job_id, salary, 
+sqrt(salary) sqrt_salary, floor(sqrt(salary)) abs_sqrt_salary
+FROM Employees.employees;
+
+SELECT * FROM Employees.employees;
+SELECT employee_id, first_name, job_id, salary, 
+sqrt(salary) sqrt_salary, floor(sqrt(salary)) abs_sqrt_salary
+FROM Employees.employees
+WHERE job_id IN("IT_PROG");
+
+SELECT * FROM Employees.employees;
+SELECT employee_id, first_name, job_id, salary, 
+sqrt(salary) sqrt_salary, floor(sqrt(salary)) abs_sqrt_salary, commission_pct
+FROM Employees.employees
+WHERE job_id IN("IT_PROG") OR commission_pct = NULL;
 ```
 
 ORACLE
 ``` sql
+SELECT * FROM EMPLOYEES;
+SELECT employee_id, first_name, job_ib, salary, sqrt(salary) salary_sqrt
+FROM EMPLOYEES;
+
+SELECT * FROM EMPLOYEES;
+SELECT employee_id, first_name, job_ib, salary, sqrt(salary) salary_sqrt,
+ceil(sqrt(salary)) ceil_sqrt_salary
+FROM EMPLOYEES;
+
+SELECT * FROM EMPLOYEES;
+SELECT employee_id, first_name, job_ib, salary, sqrt(salary) salary_sqrt,
+ceil(sqrt(salary)) ceil_sqrt_salary
+FROM EMPLOYEES
+WHERE ceil(sqrt(salary)) < 200
+ORDER BY 2;
+
+SELECT SQRT(25) FROM dual;
+SELECT SQRT(256) FROM dual;
 
 ```
+
+### **1. Datetime Functions**
+
+#### 1. MONTHS_BETWEEN
+
+#### 2. ADD_MONTHS
+
+#### 3. EXTRACT (datetime)
+
+#### 4. LAST_DAY
+
+#### 5. NEXT_DAY
+
+#### 6. ROUND(date)
+
+#### 7. TRUNC (date)
+
+#### 8. SYSDATE , CURRENT_DATE, CURRENT_TIMESTAMP
+
+#### 9. EXTRACT (_datetime_)
+
+#### 10. TO_CHAR( date , ' _format_ ')
+
+Format models (for example) in: [https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924](https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924)
+
+TO_DATE( char , ' _format_ ')

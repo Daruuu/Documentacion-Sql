@@ -1,0 +1,13 @@
+{
+  "showUnsupportedFiles": true,
+  "alwaysUpdateLinks": true,
+  "tabSize": 5,
+  "showLineNumber": true,
+  "spellcheckLanguages": [
+    "en-US",
+    "es"
+  ],
+  "vimMode": true,
+  "trashOption": "local",
+  "attachmentFolderPath": "./IMAGES"
+}
