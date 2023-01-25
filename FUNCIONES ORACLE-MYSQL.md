@@ -13,7 +13,7 @@ Extrae una subcadena de una cadena de caracteres especificada.
 Syntax: `SUBSTR(string, start, length);`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM employees;
 SELECT employee_id id, first_name name, phone_number telephone, 
 substr(phone_number, 8,5) extract_digits_phone
@@ -28,13 +28,12 @@ substr(job_id, 1, 3) extract_type_id
 FROM employees;
 ```
 
-
 #### 2. REPLACE()
 Reemplaza una _subcadena_ en una cadena de caracteres con otra subcadena.
 Syntax: `REPLACE(str, find_string, replace_with)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Employees.Countries;
 SELECT *, REPLACE(country_name, "States","aeiou") pais_modificado
 FROM countries;
@@ -60,7 +59,7 @@ Elimina los espacios en blanco al principio y al final de una cadena de caracter
 Syntax:
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Employees.locations;
 SELECT location_id id, street_address,city, TRIM(street_address) street_trim
 FROM locations;
@@ -76,6 +75,9 @@ ORACLE
 ``` sql
 SELECT location_id id, street_address,city, TRIM(street_address) street_trim
 FROM locations;
+
+SELECT TRIM(' mi nombre es daruny  ' FROM DUAL);
+
 ```
 
 #### 4. LTRIM()
@@ -83,7 +85,7 @@ Elimina los caracteres especificados de la **izquierda** de una cadena.
 Syntax: `LTRIM(str)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT LENGTH("    street_addres ") length_str
 FROM dual;
 
@@ -98,6 +100,7 @@ FROM dual;
 
 SELECT LENGTH('    colores ') before_ltrim, LENGTH(LTRIM('    colores ')) after_ltrim
 FROM dual;
+
 ```
 
 #### 5. RTRIM()
@@ -105,7 +108,7 @@ Elimina los caracteres especificados de la **derecha** de una cadena.
 Syntax: `RTRIM(str)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT LENGTH(" aeiou_abcde     ") before_rtrim, LENGTH(RTRIM(" aeiou_abcde     ")) after_rtrim
 FROM dual;
 ```
@@ -124,7 +127,7 @@ Devuelve la **longitud** de una cadena de caracteres
 Syntax: `LENGTH (str)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM AnimalHospital.Customer;
 
 SELECT Customer_Number, Customer_Name name, length(Customer_Name) length_name
@@ -151,7 +154,7 @@ Syntax : `INSTR (original_str, sub_str)`
 	sub_str: The string to be searched for within the original_str.
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Pets;
 
 SELECT Customer_Number id_customer, Pet_Name, colors, instr(colors, "n")
@@ -181,7 +184,7 @@ concatena dos o más cadenas de caracteres.
 Syntax: `CONCAT (string1, string2,…)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM AnimalHospital.visits;
 
 SELECT Pet_ID id, Date_Paid, Amount_Paid, Total_Amount, 
@@ -216,7 +219,7 @@ Convierte todos los caracteres de una cadena a minúsculas.
 Syntax: `LOWER(str)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM pueblos.articulos;
 
 SELECT codart, descrip, lower(descrip), length(descrip) length_descrip 
@@ -242,7 +245,7 @@ Convierte todos los caracteres de una cadena a mayúsculas.
 Syntax: `UPPER(str)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM sakila.address;
 
 SELECT address_id id, address, upper(address) upp_address, district, upper(district) upp_district
@@ -267,7 +270,7 @@ FROM CATEGORY C;
 #### 11. INITCAP()
 
 MYSQL
-``` mysql
+``` sql
 SELECT INITCAP( 'hi john' )
 FROM DUAL;
 ```
@@ -283,7 +286,7 @@ Agrega _caracteres_ a la __izquierda__ de una cadena hasta alcanzar una longitud
 Syntax: `LPAD(_string_, _length_, _lpad_string_)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM sakila.country;
 
 SELECT country_id , country, lpad(country, 20, "pais-")
@@ -312,7 +315,7 @@ Agrega caracteres a la derecha de una cadena hasta alcanzar una longitud especí
 Syntax: `RPAD(_string_, _length_, _rpad_string_)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM sakila.customer;
 
 SELECT customer_id, first_name name, last_name surname, 
@@ -347,7 +350,7 @@ REGEXP_SUBSTR
 
 
 MYSQL
-``` mysql
+``` sql
 
 ```
 
@@ -363,7 +366,7 @@ Returns the absolute (positive) value of a number.
 Syntax: `ABS(number)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT Pet_ID, Pet_Name, Breed, Gender, Length, Weight, abs(weight) abs_weight 
 FROM AnimalHospital.Pets;
 
@@ -390,7 +393,7 @@ This function will return one of the following:
 Syntax: `SIGN(number)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Neptuno.Pedidos;
 
 SELECT IdPedido, IdCliente, IdEmpleado, Cargo, sign(cargo) sign_cargo
@@ -411,7 +414,7 @@ Redondea un número al entero más cercano que es mayor que el número dado.
 Syntax: `CEIL(number)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Neptuno.Pedidos;
 
 SELECT IdPedido, IdCliente, IdEmpleado, Cargo, ceil(cargo) ceil_cargo
@@ -431,7 +434,7 @@ Redondea un número al entero más cercano que es **menor** que el número dado.
 Syntax: `FLOOR(number)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Neptuno.Productos;
 
 SELECT IdProducto, NombreProducto, CantidadPorUnidad, 
@@ -452,7 +455,7 @@ Redondea un número a un número especificado de dígitos decimales.
 Syntax: `ROUND(number, decimals)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM Neptuno.Productos;
 
 SELECT IdProducto, NombreProducto, CantidadPorUnidad, 
@@ -480,7 +483,7 @@ Trunca un número, al número especificado de lugares decimales.
 Syntax: `TRUNCATE(number, decimals)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM AnimalHospital.Visit_Details;
 
 SELECT Visit_Number, Visit_Type, Medication_Price, truncate(medication_price, 2) 
@@ -504,7 +507,7 @@ Syntax:
 `x % y`
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM AnimalHospital.Visit_Details;
 
 SELECT Visit_Number, Visit_Type, Treatment_Price,
@@ -533,7 +536,7 @@ Syntax: `REMAINDER(n2, n1)`
 La función __MOD__ es similar a REMAINDER excepto que MOD usa FLOOR en su fórmula, mientras que REMAINDER usa ROUND.
 
 MYSQL
-``` mysql
+``` sql
 SELECT remainder(24,3)
 FROM DUAL;
 ```
@@ -553,7 +556,7 @@ x : (the base)
 y : (the exponent)
 
 MYSQL
-``` mysql
+``` sql
 SELECT * FROM AnimalHospital.Visit_Details;
 SELECT visit_type, Treatment_price, Medication_Price,
 power(medication_price, 2) power_price
@@ -595,7 +598,7 @@ Returns the square root of a number.
 Syntax: `SQRT(number)`
 
 MYSQL
-``` mysql
+``` sql
 SELECT SQRT(-25) FROM dual; -- DA NULL
 SELECT SQRT(256) FROM dual;
 
@@ -637,31 +640,205 @@ ORDER BY 2;
 
 SELECT SQRT(25) FROM dual;
 SELECT SQRT(256) FROM dual;
-
 ```
 
 ### **1. Datetime Functions**
 
 #### 1. MONTHS_BETWEEN
 
+MYSQL
+``` sql
+
+```
+
+ORACLE
+``` sql
+SELECT * FROM EMPLOYEES;
+
+SELECT * FROM JOB_HISTORY;
+SELECT J.*, MOTNHS_BETWEEN(START_DATE, END_DATE) months_between
+FROM JOB_HISTORY;
+
+SELECT * FROM JOB_HISTORY;
+SELECT J.*, MONTHS_BETWEEN(START_DATE, END_DATE) months_between,
+ABS(MONTHS_BETWEEN(START_DATE, END_DATE)) abs_months_between
+FROM JOB_HISTORY;
+```
+
 #### 2. ADD_MONTHS
+
+MYSQL
+``` sql
+
+```
+
+Retorna un `date` pero con el mes actualizado, segun el segundo parametro de la funcion
+
+Syntax: `ADD_MONTHS(date, integer)`
+Example: 
+`ADD_MONTHS('05-JAN-14', 7)`
+01 + 7  = 08 == AUG
+05-JAN-14 +7 => 05- AUG-14
+Output: `05-AUG-14`
+ORACLE
+``` sql
+SELECT * FROM EMPLOYEES;
+SELECT hire_date, TO_CHAR(ADD_MONTHS(hire_date, -1), 'DD-MON-YYYY') "Previous month",
+TO_CHAR(ADD_MONTHS(hire_date, 1), 'DD-MON-YYYY') "Next month"
+FROM employees 
+WHERE first_name = 'Lex';
+
+SELECT * FROM EMPLOYEES;
+SELECT hire_date, TO_CHAR(ADD_MONTHS(hire_date, -1), 'DD-MON-YYYY') "Previous month",
+TO_CHAR(ADD_MONTHS(hire_date, 1), 'DD-MON-YYYY') "Next month"
+FROM employees 
+WHERE employee_id BETWEEN 120 AND 174;
+```
 
 #### 3. EXTRACT (datetime)
 
+MYSQL
+``` sql
+
+```
+
+The Oracle `EXTRACT()` function extracts a specific component `(year, month, day, hour, minute, second, etc.,)` from a datetime or an interval value.
+DATE : `YEAR, MONTH, DAY`
+INTERVAL DAY TO SECOND: `DAY, HOUR, MINUTE, SECOND`
+TIMESTAMP: `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
+
+Syntax: `EXTRACT(DATE FROM '31-Dec-1999 15:30:20 ')`
+ORACLE
+``` sql
+SELECT EXTRACT( YEAR FROM TO_DATE('31-Dec-1999 15:30:20',
+'DD-Mon-YYYY HH24:MI:SS')) extract_year
+FROM DUAL;
+
+SELECT * FROM EMPLOYEES;
+SELECT employee_id, first_name || '-' || last_name full_name, hire_date, EXTRACT(YEAR FROM hire_date) extract_year, EXTRACT(MONTH FROM hire_Date) extract_month
+FROM EMPLOYEES;
+
+SELECT * FROM EMPLOYEES;
+SELECT employee_id, first_name || '-' || last_name full_name, hire_date, EXTRACT(YEAR FROM hire_date) extract_year, EXTRACT(MONTH FROM hire_Date) extract_month
+FROM EMPLOYEES
+WHERE EXTRACT(MONTH FROM hire_date) = 1;
+```
+
 #### 4. LAST_DAY
+
+MYSQL
+``` sql
+
+```
+
+The `LAST_DAY()` function returns the last day of the month that contains a date. 
+The return type is always `DATE`, regardless of the datatype of date.
+
+Syntax: `LAST_DAY(date)`
+
+ORACLE
+``` sql
+
+SELECT SYSDATE,LAST_DAY(SYSDATE) lastday,
+LAST_DAY(SYSDATE)-SYSDATE Days_Left
+FROM DUAL;
+
+SELECT LAST_DAY('2022-10-01') ultimo_dia_mes;
+
+SELECT last_name, hire_date,
+TO_CHAR(ADD_MONTHS(LAST_DAY(hire_date), 5)) "Evaluate Date"
+FROM employees;
+
+
+SELECT C.*, LAST_DAY(last_update) last_update
+FROM city C;
+
+```
 
 #### 5. NEXT_DAY
 
+MYSQL
+``` sql
+
+```
+
+NEXT_DAY returns the date of the first weekday that is later than the date.
+Syntax> `NEXT_DAY(date, char)`
+ORACLE
+``` sql
+
+```
+
 #### 6. ROUND(date)
+
+MYSQL
+``` sql
+
+```
+
+ORACLE
+``` sql
+
+```
 
 #### 7. TRUNC (date)
 
+MYSQL
+``` sql
+
+```
+
+ORACLE
+``` sql
+
+```
+
 #### 8. SYSDATE , CURRENT_DATE, CURRENT_TIMESTAMP
+
+MYSQL
+``` sql
+
+```
+
+ORACLE
+``` sql
+
+```
 
 #### 9. EXTRACT (_datetime_)
 
+MYSQL
+``` sql
+
+```
+
+ORACLE
+``` sql
+
+```
+
 #### 10. TO_CHAR( date , ' _format_ ')
+
+MYSQL
+``` sql
+
+```
+
+ORACLE
+``` sql
+
+```
 
 Format models (for example) in: [https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924](https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924)
 
 TO_DATE( char , ' _format_ ')
+nvl
+pasar nulos a el numero que queremos
+
+``` sql
+SELECT first_name, legnth(first_name),
+CASE WHEN LENGTH(first_name) > 7 THEN 'LARGO'
+WHEN LEGNTH(first_name) > 5 THEN 'MEDIO'
+ELSE 'CORTO' END chorrada, hire_date
+```
+

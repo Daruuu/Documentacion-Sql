@@ -257,8 +257,34 @@ WHERE job_id IN("IT_PROG") OR commission_pct = NULL;
 
 SELECT SQRT(256) FROM dual;
 
+-- DATETIME
 
+-- MONTHS_BETWEEN
 
+SELECT * FROM Employees.employees;
+SELECT * FROM Employees.job_history;
 
-SELECT TRIM(" street_address   "), length(trim(" street_address   "))
-FROM dual;
+SELECT *, MONTHS_BETWEEN(start_date, end_date) months_between
+FROM job_history;
+
+SELECT TRIM('MAAI NOMBRE  ES DARUNAAY')
+-- TRIM('A' FROM 'MAAI NOMBRE  ES DARUNAAY')
+FROM DUAL;
+
+SELECT TRIM('MAAI NOMBRE  ES DARUNAAY' FROM 'AA'),
+TRIM('A' FROM 'MAAI NOMBRE  ES DARUNAAY')
+FROM DUAL;
+
+-- DATETIME
+
+-- MONTHS_BETWEEN
+
+SELECT * FROM Employees.employees;
+SELECT * FROM Employees.job_history;
+
+SELECT *, MONTHS_BETWEEN(start_date, end_date) months_between
+FROM job_history;
+
+SELECT EXTRACT( YEAR FROM TO_DATE('31-Dec-1999 15:30:20',
+'DD-Mon-YYYY HH24:MI:SS')) extract_year
+FROM DUAL;

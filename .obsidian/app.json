@@ -9,5 +9,12 @@
   ],
   "vimMode": true,
   "trashOption": "local",
-  "attachmentFolderPath": "./IMAGES"
+  "attachmentFolderPath": "./IMAGES",
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }
