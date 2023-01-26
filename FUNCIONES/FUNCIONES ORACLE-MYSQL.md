@@ -639,7 +639,7 @@ WHERE ceil(sqrt(salary)) < 200
 ORDER BY 2;
 
 SELECT SQRT(25) FROM dual;
-SELECT SQRT(256) FROM dual;
+SELECT SQRT(296) FROM dual;
 ```
 
 ### **1. Datetime Functions**
@@ -702,9 +702,9 @@ MYSQL
 
 ```
 
+La función EXTRACT en Oracle SQL se utiliza para obtener una parte específica de una fecha o timestamp.
 The Oracle `EXTRACT()` function extracts a specific component `(year, month, day, hour, minute, second, etc.,)` from a datetime or an interval value.
-DATE : `YEAR, MONTH, DAY`
-INTERVAL DAY TO SECOND: `DAY, HOUR, MINUTE, SECOND`
+DATE : `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
 TIMESTAMP: `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
 
 Syntax: `EXTRACT(DATE FROM '31-Dec-1999 15:30:20 ')`
@@ -745,11 +745,13 @@ FROM DUAL;
 
 SELECT LAST_DAY('2022-10-01') ultimo_dia_mes;
 
+SELECT * FROM employees;
 SELECT last_name, hire_date,
 TO_CHAR(ADD_MONTHS(LAST_DAY(hire_date), 5)) "Evaluate Date"
 FROM employees;
 
-
+SELECT * FROM SAKILA;
+SELECT * FROM CITY;
 SELECT C.*, LAST_DAY(last_update) last_update
 FROM city C;
 
@@ -762,11 +764,21 @@ MYSQL
 
 ```
 
-NEXT_DAY returns the date of the first weekday that is later than the date.
-Syntax> `NEXT_DAY(date, char)`
+`NEXT_DAY` returns the date of the first weekday that is later than the date.
+se utiliza para obtener la fecha del día de la semana siguiente de un día específico.
+en parametro `char`: se puede poner como string es decir "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" o "SUNDAY" ; o tambien pasar su equivalente a numero `1-7`.
+
+Syntax: `NEXT_DAY(date, char)`
+
 ORACLE
 ``` sql
+SELECT * FROM CUSTOMER;
+SELECT customer_id, first_name || '-' || last_name full_name, last_update, NEXT_DAY(last_update, 6) next_day_char
+FROM CUSTOMER;
 
+SELECT * FROM CUSTOMER;
+SELECT customer_id,lower(first_name || '-' || last_name) full_name_lower, last_update, NEXT_DAY(last_update, 6) next_day_char, NEXT_DAY(last_update, 'sabado') next_day_string 
+FROM CUSTOMER;
 ```
 
 #### 6. ROUND(date)
@@ -776,8 +788,41 @@ MYSQL
 
 ```
 
+La función `ROUND` se utiliza para redondear una **fecha** a un cierto nivel de precisión temporal.
+Hay que especificar el nivel de precision temporal en el cual queremos REDONDEAR la fecha, utilizando el formato.
+fmt: `"YEAR", "MONTH", "DAY", "HOUR", "MINUTE" o "SECOND"`
+
+Syntax: `ROUND(date [,fmt ])`
+Retorna el primer 
 ORACLE
 ``` sql
+SELECT ROUND(TO_DATE ('16-SEP-2015'),'MONTH') new_month,
+ROUND(TO_DATE ('16-SEP-2015'),'YEAR') new_year
+FROM DUAL;
+
+SELECT * FROM CUSTOMER;
+SELECT customer_id, first_name, last_update, 
+ROUND(last_update, 'YEAR') round_year,
+ROUND(last_update, 'MONTH') round_month
+FROM CUSTOMER;
+
+SELECT * FROM ANIMAL_HOSPITAL.CUSTOMER;
+SELECT * FROM CUSTOMER;
+SELECT customer_number, customer_name, city, customer_since, 
+last_visit_date
+FROM CUSTOMER;
+
+SELECT * FROM CUSTOMER;
+SELECT customer_number, customer_name, city, customer_since, 
+last_visit_date, ROUND(customer_since, 'YEAR') customer_since_year
+FROM CUSTOMER;
+
+SELECT * FROM CUSTOMER;
+SELECT customer_number, customer_name, city, customer_since, 
+last_visit_date, 
+ROUND(customer_since, 'YEAR') customer_since_year,
+NEXT_DAY(last_visit_date, 'LUNES') nextvisit_lunes
+FROM CUSTOMER;
 
 ```
 
@@ -788,9 +833,24 @@ MYSQL
 
 ```
 
+Se utiliza para obtener la fecha con la parte de la hora del día truncada en una unidad de medida específica. 
+The unit of measure for truncating(fmt)
+fmt:  `"YEAR", "MONTH", "DAY", "HOUR", "MINUTE" o "SECOND"`
+
+Syntax: `TRUNC(date [, fmt])`
+`SELECT TRUNC(fecha_columna, 'fmt') fecha_truncada FROM tabla;`
+
 ORACLE
 ``` sql
+SELECT TO_DATE('02-MAR-15','DD-MON-YY') fecha_normal, TRUNC(TO_DATE('02-MAR-15','DD-MON-YY'), 'YEAR') fecha_trunc_year
+FROM DUAL;
 
+SELECT * FROM ANIMAL_HOSPITAL.CUSTOMER;
+SELECT * FROM CUSTOMER;
+SELECT customer_number, customer_name, city, customer_since, 
+last_visit_date, TRUNC(last_visit_date,'YEAR') trunc_year,
+TRUNC(last_visit_date, 'DAY') trunc_day
+FROM CUSTOMER;
 ```
 
 #### 8. SYSDATE , CURRENT_DATE, CURRENT_TIMESTAMP

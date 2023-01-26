@@ -13,37 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FUNCIONES ORACLE-MYSQL.md",
+                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "05f9cd63677a525a",
+            "id": "447006f1196b02b1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Funciones Oracle-SQL/4.FUNCIONES CARACTERES ORACLE.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "dad7bf0f69f9a35f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Funciones MySQL/2.FUNCIONES FECHAS.md",
+                "file": "JOINS/Untitled.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "5df1b83d0bc0b3f3",
@@ -110,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "FUNCIONES ORACLE-MYSQL.md",
+                "file": "JOINS/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,13 +137,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "27b479e5497ec0f5",
+  "active": "447006f1196b02b1",
   "lastOpenFiles": [
-    "Funciones Oracle-SQL/4.FUNCIONES CARACTERES ORACLE.md",
-    "Funciones MySQL/2.FUNCIONES FECHAS.md",
-    "FUNCIONES ORACLE-MYSQL.md",
-    "Funciones Oracle-SQL/2.FUNCIONES FECHAS.md",
-    "Funciones MySQL/3.FUNCIONES NUMERICAS.md",
-    "Funciones Oracle-SQL/1.FUNCIONES STRINGS.md"
+    "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
+    "FUNCIONES/Funciones Oracle-SQL/4.FUNCIONES CARACTERES ORACLE.md",
+    "Comandos Oracle-SQL/Comandos Oracle.md",
+    "Comandos Oracle-SQL/Comandos mySQL.md",
+    "FUNCIONES/Funciones MySQL/2.FUNCIONES FECHAS.md",
+    "FUNCIONES/Funciones Oracle-SQL/2.FUNCIONES FECHAS.md",
+    "FUNCIONES/Funciones MySQL/3.FUNCIONES NUMERICAS.md",
+    "FUNCIONES/Funciones Oracle-SQL/1.FUNCIONES STRINGS.md"
   ]
 }
