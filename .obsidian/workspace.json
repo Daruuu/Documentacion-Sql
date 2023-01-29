@@ -13,6 +13,18 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "JOINS/Join Basica o Inner Join.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "68ab135f388e4d4d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
                 "mode": "source",
                 "source": false
@@ -20,12 +32,12 @@
             }
           },
           {
-            "id": "447006f1196b02b1",
+            "id": "f12c4bf26ea6788a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JOINS/Untitled.md",
+                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
                 "mode": "source",
                 "source": false
               }
@@ -82,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "5df1b83d0bc0b3f3",
@@ -98,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JOINS/Untitled.md",
+                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,8 +150,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "447006f1196b02b1",
+  "active": "68ab135f388e4d4d",
   "lastOpenFiles": [
+    "JOINS/Join Basica o Inner Join.md",
     "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
     "FUNCIONES/Funciones Oracle-SQL/4.FUNCIONES CARACTERES ORACLE.md",
     "Comandos Oracle-SQL/Comandos Oracle.md",

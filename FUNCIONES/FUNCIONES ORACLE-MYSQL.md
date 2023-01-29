@@ -338,8 +338,17 @@ FROM CUSTOMER;
 ```
   
 
-TO_CHAR( number , ' _format_ ')
+#### 14. TO_CHAR( number , ' _format_ ')
 Format models (for example) in: [https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34570](https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34570)
+
+MYSQL
+``` sql
+```
+
+ORACLE
+``` sql
+```
+
 
 SOUNDEX (aplica ejemplos mirando [Words with the Same Pronunciation (thefreedictionary.com)](https://www.thefreedictionary.com/Words-with-the-same-pronunciation.htm#:~:text=There%20are%20also%20the%20following%20groups%20of%20words,8%20poor%20-%20pore%20-%20pour%20M%C3%A1s%20elementos) )
 TRANSLATE
@@ -347,16 +356,12 @@ TRANSLATE
 _Interesantes, aunque requieren más dedicación:_
 REGEXP_REPLACE
 REGEXP_SUBSTR
-
-
 MYSQL
 ``` sql
-
 ```
 
 ORACLE
 ``` sql
-
 ```
 
 ### **2. Numeric Functions**
@@ -648,36 +653,42 @@ SELECT SQRT(296) FROM dual;
 
 MYSQL
 ``` sql
-
 ```
+Permite calcular el número de meses entre dos fechas.
+Si `date1` es posterior a `date2`, entonces el resultado es **POSITIVO**.
+Si `date1` es anterior a `date2`, el resultado es **NEGATIVO**.
+Syntax: `MONTHS_BETWEEN(date1, date2)`
 
 ORACLE
 ``` sql
 SELECT * FROM EMPLOYEES;
-
+-- MOSTRARA LA CANTIDA DE MESES EN NEGATIVO
 SELECT * FROM JOB_HISTORY;
 SELECT J.*, MOTNHS_BETWEEN(START_DATE, END_DATE) months_between
 FROM JOB_HISTORY;
 
+-- MOSTRARA LA CANTIDA DE MESES EN POSITIVO
 SELECT * FROM JOB_HISTORY;
-SELECT J.*, MONTHS_BETWEEN(START_DATE, END_DATE) months_between,
-ABS(MONTHS_BETWEEN(START_DATE, END_DATE)) abs_months_between
+SELECT J.*, MOTNHS_BETWEEN(END_DATE,START_DATE) months_between
 FROM JOB_HISTORY;
+
+SELECT * FROM JOB_HISTORY;
+SELECT J.*, MONTHS_BETWEEN(START_DATE, END_DATE) months_between, 
+ABS(MONTHS_BETWEEN(START_DATE, END_DATE))abs_months_between,
+ROUND(MONTHS_BETWEEN(END_DATE,START_DATE),2)"round 2 deci"
+FROM JOB_HISTORY J;
 ```
 
 #### 2. ADD_MONTHS
-
 MYSQL
 ``` sql
-
 ```
 
-Retorna un `date` pero con el mes actualizado, segun el segundo parametro de la funcion
-
+Retorna un `DATE` pero con el mes actualizado, segun el segundo parametro de la funcion.
 Syntax: `ADD_MONTHS(date, integer)`
 Example: 
 `ADD_MONTHS('05-JAN-14', 7)`
-01 + 7  = 08 == AUG
+01 + 7 = 08 == AUG
 05-JAN-14 +7 => 05- AUG-14
 Output: `05-AUG-14`
 ORACLE
@@ -696,10 +707,8 @@ WHERE employee_id BETWEEN 120 AND 174;
 ```
 
 #### 3. EXTRACT (datetime)
-
 MYSQL
 ``` sql
-
 ```
 
 La función EXTRACT en Oracle SQL se utiliza para obtener una parte específica de una fecha o timestamp.
@@ -707,7 +716,8 @@ The Oracle `EXTRACT()` function extracts a specific component `(year, month, d
 DATE : `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
 TIMESTAMP: `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
 
-Syntax: `EXTRACT(DATE FROM '31-Dec-1999 15:30:20 ')`
+Syntax: `EXTRACT(DATE FROM '31-Dec-1999 15:30:20')`
+
 ORACLE
 ``` sql
 SELECT EXTRACT( YEAR FROM TO_DATE('31-Dec-1999 15:30:20',
@@ -719,7 +729,9 @@ SELECT employee_id, first_name || '-' || last_name full_name, hire_date, EXTRACT
 FROM EMPLOYEES;
 
 SELECT * FROM EMPLOYEES;
-SELECT employee_id, first_name || '-' || last_name full_name, hire_date, EXTRACT(YEAR FROM hire_date) extract_year, EXTRACT(MONTH FROM hire_Date) extract_month
+SELECT employee_id, first_name||'-'||last_name full_name, hire_date, 
+EXTRACT(YEAR FROM hire_date) extract_year,
+EXTRACT(MONTH FROM hire_Date) extract_month
 FROM EMPLOYEES
 WHERE EXTRACT(MONTH FROM hire_date) = 1;
 ```
@@ -728,26 +740,24 @@ WHERE EXTRACT(MONTH FROM hire_date) = 1;
 
 MYSQL
 ``` sql
-
 ```
 
 The `LAST_DAY()` function returns the last day of the month that contains a date. 
 The return type is always `DATE`, regardless of the datatype of date.
-
 Syntax: `LAST_DAY(date)`
 
 ORACLE
 ``` sql
-
 SELECT SYSDATE,LAST_DAY(SYSDATE) lastday,
 LAST_DAY(SYSDATE)-SYSDATE Days_Left
 FROM DUAL;
 
-SELECT LAST_DAY('2022-10-01') ultimo_dia_mes;
+SELECT LAST_DAY(SYSDATE) ultimo_dia_mes
+FROM DUAL;
 
 SELECT * FROM employees;
 SELECT last_name, hire_date,
-TO_CHAR(ADD_MONTHS(LAST_DAY(hire_date), 5)) "Evaluate Date"
+TO_CHAR(ADD_MONTHS(LAST_DAY(hire_date), 5)) "5 meses mas"
 FROM employees;
 
 SELECT * FROM SAKILA;
@@ -761,7 +771,6 @@ FROM city C;
 
 MYSQL
 ``` sql
-
 ```
 
 `NEXT_DAY` returns the date of the first weekday that is later than the date.
@@ -830,7 +839,6 @@ FROM CUSTOMER;
 
 MYSQL
 ``` sql
-
 ```
 
 Se utiliza para obtener la fecha con la parte de la hora del día truncada en una unidad de medida específica. 
@@ -853,7 +861,7 @@ TRUNC(last_visit_date, 'DAY') trunc_day
 FROM CUSTOMER;
 ```
 
-#### 8. SYSDATE , CURRENT_DATE, CURRENT_TIMESTAMP
+#### 8. SYSDATE
 
 MYSQL
 ``` sql
@@ -862,10 +870,11 @@ MYSQL
 
 ORACLE
 ``` sql
-
+SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY') sysdate_today
+FROM DUAL;
 ```
 
-#### 9. EXTRACT (_datetime_)
+#### 9.CURRENT_DATE
 
 MYSQL
 ``` sql
@@ -874,10 +883,11 @@ MYSQL
 
 ORACLE
 ``` sql
-
+SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY') sysdate_today
+FROM DUAL;
 ```
 
-#### 10. TO_CHAR( date , ' _format_ ')
+#### 10.CURRENT_TIMESTAMP
 
 MYSQL
 ``` sql
@@ -886,7 +896,28 @@ MYSQL
 
 ORACLE
 ``` sql
+SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY') sysdate_today
+FROM DUAL;
+```
 
+#### 11. EXTRACT (_datetime_)
+
+MYSQL
+``` sql
+```
+
+ORACLE
+``` sql
+```
+
+#### 12. TO_CHAR( date , ' _format_ ')
+
+MYSQL
+``` sql
+```
+
+ORACLE
+``` sql
 ```
 
 Format models (for example) in: [https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924](https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924)
@@ -901,4 +932,3 @@ CASE WHEN LENGTH(first_name) > 7 THEN 'LARGO'
 WHEN LEGNTH(first_name) > 5 THEN 'MEDIO'
 ELSE 'CORTO' END chorrada, hire_date
 ```
-
