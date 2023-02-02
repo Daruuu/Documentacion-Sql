@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "27b479e5497ec0f5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JOINS/Join Basica o Inner Join.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "68ab135f388e4d4d",
             "type": "leaf",
             "state": {
@@ -32,19 +20,27 @@
             }
           },
           {
-            "id": "f12c4bf26ea6788a",
+            "id": "97a564db0338b50e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
+                "file": "JOINS/Join Basica o Inner Join.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "a63180e8c2a04c97",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,8 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "5df1b83d0bc0b3f3",
@@ -111,7 +106,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,10 +144,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "68ab135f388e4d4d",
+  "active": "a63180e8c2a04c97",
   "lastOpenFiles": [
-    "JOINS/Join Basica o Inner Join.md",
     "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
+    "JOINS/Join Basica o Inner Join.md",
     "FUNCIONES/Funciones Oracle-SQL/4.FUNCIONES CARACTERES ORACLE.md",
     "Comandos Oracle-SQL/Comandos Oracle.md",
     "Comandos Oracle-SQL/Comandos mySQL.md",

@@ -647,7 +647,7 @@ SELECT SQRT(25) FROM dual;
 SELECT SQRT(296) FROM dual;
 ```
 
-### **1. Datetime Functions**
+### **3. Datetime Functions**
 
 #### 1. MONTHS_BETWEEN
 
@@ -932,3 +932,95 @@ CASE WHEN LENGTH(first_name) > 7 THEN 'LARGO'
 WHEN LEGNTH(first_name) > 5 THEN 'MEDIO'
 ELSE 'CORTO' END chorrada, hire_date
 ```
+
+### **4. Other**
+
+#### 1. DECODE
+
+MYSQL
+``` sql
+```
+
+ORACLE
+``` sql
+```
+
+
+#### 2. CASE
+See (for example): [https://www.techonthenet.com/oracle/functions/case.php](https://www.techonthenet.com/oracle/functions/case.php)
+
+MYSQL
+``` sql
+```
+permite evaluar una expresión y devolver un valor diferente basado en varios posibles resultados.
+Syntax:
+`CASE [ expression ]
+   WHEN condition_1 THEN result_1
+   WHEN condition_2 THEN result_2
+   WHEN condition_n THEN result_n
+   ELSE result
+END`
+
+ORACLE
+``` sql
+SELECT table_name,
+CASE owner
+  WHEN 'SYS' THEN 'The owner is SYS'
+  WHEN 'SYSTEM' THEN 'The owner is SYSTEM'
+  ELSE 'The owner is another value'
+END
+FROM all_tables;
+
+SELECT * FROM EMPLOYEES;
+SELECT LAST_NAME, JOB_ID,
+CASE 
+  WHEN JOB_ID LIKE('%CLERK') THEN 'Es un CLERK'
+  WHEN JOB_ID LIKE ('%REP') THEN 'Es un REP'
+   ELSE 'Es otra cosa' END Clasificacion
+FROM EMPLOYEES
+ORDER BY LAST_NAME;
+
+```
+
+#### 3. NVL
+
+MYSQL
+``` sql
+```
+
+Permite reemplazar un valor nulo con otro valor especificado.
+Syntax: `NVL(column, valor_reemplazar`
+
+ORACLE
+``` sql
+SELECT LAST_NAME,
+NVL(COMMISSION_PCT, 'No Commission') COMMISSION
+FROM EMPLOYEES;
+```
+
+#### 4. NVL2
+
+MYSQL
+``` sql
+```
+
+ORACLE
+``` sql
+```
+
+  
+
+**Multiple ROW Functions**
+
+  
+
+SUM
+
+AVG
+
+COUNT
+
+MAX
+
+MIN
+

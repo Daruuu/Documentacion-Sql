@@ -7,8 +7,11 @@ FROM tabla1 JOIN tabla2 ON(tabla1.columna=tabla2.columna);
 Normalmente 1ro se agrega la tabla **FK** y despues la tabla donde esta la **PK**
 
 La condición que figura dentro del ON, es la condición de “pegado” de ambas tablas. 
+
 Son las columnas `FK` y la `PK` a la que apunta, las tablas que estamos “pegando”.
+
 Para realizar una JOIN de más de 3 o más tablas, se hace de un modo muy sencillo, generalizando:
+
 ``` sql
 SELECT <columna | expresión> , <columna | expresión>, …
 FROM tabla1 JOIN tabla2 ON(tabla1.columna=tabla2.columna)
