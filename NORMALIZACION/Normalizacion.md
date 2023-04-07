@@ -16,4 +16,3 @@ Los datos que no pertenecen a las ENTIDADES deben tener una independencia de las
 - Esta FN nos trata de atomizar los datos multivaluados de manera que no tengamos datos repetidos entre rows.
 - los campos multievaludados se identificaon por una clave unica(PK).
 - Esta FN trata de eliminar registros duplicados en una entidad, es decir que cada registro tenga un contenido único y de necesitar repetir la data en los resultados se realiza a través de claves foráneas.
-- 

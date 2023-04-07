@@ -1012,8 +1012,6 @@ ORACLE
 
 **Multiple ROW Functions**
 
-  
-
 SUM
 
 AVG
@@ -1023,4 +1021,3 @@ COUNT
 MAX
 
 MIN
-

@@ -36,10 +36,6 @@ OK
 127.0.0.1:6379[1]> 
 ```
 
-``` bash
-
-```
-
 Las claves que determinamos en Redis son sensibles a las mayúsculas y minúsculas. Pero
 también debemos tener en cuenta lo siguiente:
 - No utilizar caracteres especiales o acentos.
@@ -55,9 +51,3 @@ regresa un rango especifico del string
 ":12345, web: https://www.google."
 127.0.0.1:6379[1]> 
 ```
-
-
-
-
-
-
