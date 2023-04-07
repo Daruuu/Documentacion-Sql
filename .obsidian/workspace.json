@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "5aef0d0943bb38ee",
+        "id": "5318428189de54d6",
         "type": "tabs",
         "children": [
           {
-            "id": "68ab135f388e4d4d",
+            "id": "bfeb9b6d22167cea",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "REDIS/Cheatsheet REDIS.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "REDIS/Cheatsheet REDIS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,8 +120,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "68ab135f388e4d4d",
+  "active": "bfeb9b6d22167cea",
   "lastOpenFiles": [
+    "REDIS/Cheatsheet REDIS.md",
     "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
     "FUNCIONES/Oracle-SQL/4.FUNCIONES CHARS ORACLE.md",
     "FUNCIONES/MySQL/4.FUNCIONES CHARS MYSQL.md",
@@ -135,7 +131,6 @@
     "FUNCIONES/MySQL/2.FUNCIONES FECHAS.md",
     "JOINS/Inner Join.md",
     "NORMALIZACION/Normalizacion.md",
-    "REDIS/Cheatsheet REDIS.md",
     "PL-SQL/Chapter 5.md",
     "PL-SQL",
     "Comandos Oracle-SQL/Comandos Oracle.md",
