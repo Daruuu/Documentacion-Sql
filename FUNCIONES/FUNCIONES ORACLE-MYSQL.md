@@ -10,9 +10,13 @@ utilizan.
 
 #### 1. SUBSTR()
 Extrae una subcadena de una cadena de caracteres especificada.
-Syntax: `SUBSTR(string, start, length);`
+Permite tomar una cadena y seleccionar una porción determinada de 
+caracteres basada en la posición de inicio y la longitud especificadas.
+
+Syntax: `SUBSTR(string, start, [length];`
 
 MYSQL
+
 ``` sql
 SELECT * FROM employees;
 SELECT employee_id id, first_name name, phone_number telephone, 
@@ -21,6 +25,13 @@ FROM employees;
 ```
 
 ORACLE
+
+"cadena" es la cadena de caracteres de la cual deseas extraer una parte.
+
+"inicio" es la posición de inicio desde la cual deseas extraer los caracteres. El primer carácter tiene la posición 1.
+
+"longitud" (opcional) es el número de caracteres que deseas extraer a partir de la posición de inicio. Si no se proporciona la longitud, se extraerán todos los caracteres hasta el final de la cadena.
+
 ``` sql
 SELECT * FROM employees;
 SELECT employee_id id, first_name name, email, job_id, 
@@ -167,6 +178,16 @@ ORDER BY Pet_Name;
 ```
 
 ORACLE
+Se utiliza para encontrar la posición de una **subcadena** dentro de una 
+cadena más grande. Proporciona la posición en la que comienza la 
+subcadena dentro de la cadena principal.
+Syntax: `INSTR(cadena, subcadena, [posición_inicio], [ocurrencia])`
+
+- "cadena" es la cadena de caracteres en la cual deseas buscar la *subcadena*.
+- "subcadena" es la subcadena que deseas encontrar dentro de la cadena principal.
+- "posición_inicio" (opcional) es la posición desde la cual se inicia la búsqueda. Si no se proporciona, la búsqueda comienza desde el primer carácter de la cadena.
+- "ocurrencia" (opcional) es el *número* de ocurrencia de la *subcadena* que deseas encontrar dentro de la cadena. Si no se proporciona, se asume la primera ocurrencia.
+
 ``` sql
 SELECT * FROM PETS;
 
@@ -711,14 +732,14 @@ MYSQL
 ``` sql
 ```
 
-La función EXTRACT en Oracle SQL se utiliza para obtener una parte específica de una fecha o timestamp.
+ORACLE
+La función `EXTRACT` en Oracle SQL se utiliza para obtener una parte específica de una fecha o timestamp.
 The Oracle `EXTRACT()` function extracts a specific component `(year, month, day, hour, minute, second, etc.,)` from a datetime or an interval value.
 DATE : `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
 TIMESTAMP: `YEAR, MONTH, DAY, HOUR, MINUTE, SECOND`
 
 Syntax: `EXTRACT(DATE FROM '31-Dec-1999 15:30:20')`
 
-ORACLE
 ``` sql
 SELECT EXTRACT( YEAR FROM TO_DATE('31-Dec-1999 15:30:20',
 'DD-Mon-YYYY HH24:MI:SS')) extract_year
@@ -863,12 +884,9 @@ FROM CUSTOMER;
 
 #### 8. SYSDATE
 
-MYSQL
-``` sql
-
-```
-
 ORACLE
+Nuestra la fecha del día actual en el formato deseado.
+
 ``` sql
 SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY') sysdate_today
 FROM DUAL;
@@ -917,7 +935,36 @@ MYSQL
 ```
 
 ORACLE
+Se utiliza para convertir valores de fecha y hora en formato de texto. 
+Permite formatear una **fecha** en una representación específica según el formato proporcionado. 
+Aquí tienes una explicación más detallada de cómo se utiliza la función ``TO_CHAR`` para la manipulación de fechas:
+
 ``` sql
+TO_CHAR(fecha, formato)
+```
+
+**fecha** es la expresión de fecha que deseas convertir.
+**formato** es la cadena que especifica el formato deseado para la salida.
+
+Algunos elementos comunes utilizados en el formato de la función **TO_CHAR** para manipulación de fechas son:
+
+'YYYY' o 'RRRR': Representa el año en formato de 4 dígitos.
+'MM': Representa el mes en formato de 2 dígitos (01 a 12).
+'DD': Representa el día en formato de 2 dígitos (01 a 31).
+'HH24': Representa la hora en formato de 24 horas (00 a 23).
+'MI': Representa los minutos en formato de 2 dígitos (00 a 59).
+'SS': Representa los segundos en formato de 2 dígitos (00 a 59).
+'DAY' o 'DY': Representa el nombre del día de la semana.
+'D': Representa el número del día de la semana (1 para lunes, 2 para martes, etc.).
+'W': Representa el número de la semana del mes.
+'WW': Representa el numero de semana del año.
+
+``` sql
+SELECT TO_CHAR(sysdate, 'YYYY-MM-DD') AS fecha_actual
+FROM dual;
+
+SELECT TO_CHAR(hire_date, 'DAY, DD-MON-YYYY HH:MI AM') AS fecha_contratacion
+FROM empleados;
 ```
 
 Format models (for example) in: [https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924](https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34924)
@@ -937,14 +984,35 @@ ELSE 'CORTO' END chorrada, hire_date
 
 #### 1. DECODE
 
-MYSQL
-``` sql
-```
-
 ORACLE
-``` sql
-```
 
+se utiliza para realizar evaluaciones condicionales y devolver un resultado basado en la comparación de un valor con múltiples expresiones. 
+
+Syntax: `DECODE(valor, expresion1, resultado1, expresion2, resultado2, ..., valor_por_defecto)`
+
+- `valor`: Es el valor que se va a comparar con las expresiones.
+- `expresion1`: Es la expresión a evaluar cuando el valor coincide con esta expresión.
+- `resultado1`: Es el resultado que se devuelve si el valor coincide con la expresión1.
+- `expresion2`: Es la siguiente expresión a evaluar si el valor no coincide con la expresión1.
+- `resultado2`: Es el resultado que se devuelve si el valor coincide con la expresión2.
+- `valor_por_defecto` (opcional): Es el valor que se devuelve si el valor no coincide con ninguna de las expresiones anteriores.
+
+Quieres obtener una columna que muestre "Anterior" si la venta ocurrió antes de una fecha determinada y "Posterior" si la venta ocurrió después de esa fecha.
+``` sql
+SELECT fecha_venta,
+       monto_venta,
+       DECODE(
+           SIGN(fecha_venta - 
+           TO_DATE('2022-01-01', 'YYYY-MM-DD')),
+           -1, 'Anterior',
+           1, 'Posterior',
+           'En la fecha'
+       ) AS estado
+FROM Ventas;
+```
+- Si la diferencia es menor que cero (-1), significa que la venta ocurrió antes de la fecha de referencia, por lo que se devuelve 'Anterior'.
+- Si la diferencia es mayor que cero (1), significa que la venta ocurrió después de la fecha de referencia, por lo que se devuelve 'Posterior'.
+- Si la diferencia es igual a cero, significa que la venta ocurrió exactamente en la fecha de referencia, por lo que se devuelve 'En la fecha'.
 
 #### 2. CASE
 See (for example): [https://www.techonthenet.com/oracle/functions/case.php](https://www.techonthenet.com/oracle/functions/case.php)
@@ -1008,7 +1076,29 @@ ORACLE
 ``` sql
 ```
 
-  
+#### 5. SIGN
+ORACLE
+
+Determinar el **signo** de un número y devuelve un valor numérico que indica el signo del número dado.
+
+Syntax: `SIGN(número)`
+- `número`: Es el número al que se le desea determinar el signo.
+- 
+La función SIGN devuelve los siguientes valores:
+
+- Si el `número` es **negativo**, la función SIGN devuelve **-1**.
+- Si el `número` es **cero**, la función SIGN devuelve **0**.
+- Si el `número` es **positivo**, la función SIGN devuelve **1**.
+
+Aquí tienes un ejemplo para ilustrar cómo funciona la función SIGN:
+
+``` sql
+SELECT 
+    -10 AS numero,
+    SIGN(-10) AS signo
+FROM 
+    DUAL;
+```
 
 **Multiple ROW Functions**
 

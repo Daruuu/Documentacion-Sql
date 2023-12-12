@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "5318428189de54d6",
+        "id": "e61165c2588a7592",
         "type": "tabs",
         "children": [
           {
-            "id": "bfeb9b6d22167cea",
+            "id": "c241050b2cc4bbe7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -60,12 +64,20 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "924f20c1a94654d9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 252.5,
+    "width": 242.5,
     "collapsed": true
   },
   "right": {
@@ -82,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,22 +133,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bfeb9b6d22167cea",
+  "active": "c241050b2cc4bbe7",
   "lastOpenFiles": [
-    "REDIS/Cheatsheet REDIS.md",
+    "Comandos Oracle-SQL/Comandos Oracle.md",
     "FUNCIONES/FUNCIONES ORACLE-MYSQL.md",
-    "FUNCIONES/Oracle-SQL/4.FUNCIONES CHARS ORACLE.md",
-    "FUNCIONES/MySQL/4.FUNCIONES CHARS MYSQL.md",
-    "FUNCIONES/MySQL/3.FUNCIONES NUMERICAS.md",
-    "FUNCIONES/MySQL/1.FUNCIONES STRINGS.md",
-    "FUNCIONES/MySQL/2.FUNCIONES FECHAS.md",
+    "FUNCIONES/Oracle-SQL/1.FUNCIONES STRINGS.md",
     "JOINS/Inner Join.md",
     "NORMALIZACION/Normalizacion.md",
-    "PL-SQL/Chapter 5.md",
-    "PL-SQL",
-    "Comandos Oracle-SQL/Comandos Oracle.md",
-    "Comandos Oracle-SQL/Comandos mySQL.md",
+    "FUNCIONES/Oracle-SQL/4.FUNCIONES CHARS ORACLE.md",
+    "FUNCIONES/Oracle-SQL/3.FUNCIONES NUMERICAS.md",
     "FUNCIONES/Oracle-SQL/2.FUNCIONES FECHAS.md",
-    "FUNCIONES/Oracle-SQL/1.FUNCIONES STRINGS.md"
+    "Comandos Oracle-SQL/Comandos mySQL.md",
+    "REDIS/Cheatsheet REDIS.md",
+    "PL-SQL/Chapter 5.md",
+    "FUNCIONES/MySQL/4.FUNCIONES CHARS MYSQL.md",
+    "FUNCIONES/MySQL/3.FUNCIONES NUMERICAS.md",
+    "FUNCIONES/MySQL/2.FUNCIONES FECHAS.md",
+    "FUNCIONES/MySQL/1.FUNCIONES STRINGS.md",
+    "PL-SQL"
   ]
 }
